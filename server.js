@@ -7,10 +7,9 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json({ limit: "100000kb" }));
-app.use(express.urlencoded({ extended: true, limit: "100000kb" }));
-// app.use(bodyParser.urlencoded({ extended: true, limit: "100mb" }))
-// app.options("*", cors());
+app.use(express.json({ limit: "10000kb" }));
+app.use(express.urlencoded({ extended: true, limit: "10000kb" }));
+
 app.use(cors());
 
 app.post("/", (req, res) => {
