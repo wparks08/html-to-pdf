@@ -33,15 +33,16 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
             let requestData = {
-                "html": document.documentElement.innerHTML
+                "url": "http://wpx-dev.com:8080/skimplan/manager/index"
             };
 
         $.ajax({
                 type: "POST",
-                url: "http://localhost:3000",
+                url: "http://localhost:7330",
                 data: JSON.stringify(requestData),
                 contentType: "application/json",
                 xhrFields: {
+                    withCredentials: true,
                     responseType: "blob"
                 },
                 success: function (data) {

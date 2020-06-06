@@ -4,8 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +17,19 @@
     "url": "https://github.com/wparks08/html-to-pdf/issues"
   },
   "homepage": "https://github.com/wparks08/html-to-pdf#readme",
+  "devDependencies": {
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "pdf-puppeteer": "^1.1.9"
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "puppeteer": "^3.3.0"
   }
 }
