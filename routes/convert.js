@@ -6,7 +6,7 @@ router.post("/convert", async (req, res) => {
     const { url } = req.body;
 
     if (!url) {
-        res.status(403).send({
+        res.status(400).send({
             errors: [
                 {
                     message: "Request body did not contain 'url'",
