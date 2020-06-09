@@ -1,6 +1,7 @@
-const AbstractError = require("../errors/abstract-error");
+import { AbstractError } from "../errors/abstract-error";
+import { Request, Response, NextFunction } from "express";
 
-const errorHandler = (err, req, res, next) => {
+export const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
     if (err instanceof AbstractError) {
         return res.status(err.statusCode).send({ errors: err.serializeErrors() });
     }
@@ -13,5 +14,3 @@ const errorHandler = (err, req, res, next) => {
         ],
     });
 };
-
-module.exports = errorHandler;

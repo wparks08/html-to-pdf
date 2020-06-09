@@ -1,9 +1,10 @@
-const express = require("express");
+import express, { Request, Response } from "express";
+import { PDFService } from "../services/PDFService";
+import { PDFCreationError } from "../errors/pdf-creation-error";
+import { ValidationError } from "../errors/validation-error";
+import { body, cookie, validationResult } from "express-validator";
+
 const router = express.Router();
-const { body, cookie, validationResult } = require("express-validator");
-const ValidationError = require("../errors/validation-error");
-const PDFCreationError = require("../errors/pdf-creation-error");
-const PDFService = require("../services/PDFService");
 
 router.post(
     "/convert",
@@ -11,7 +12,7 @@ router.post(
         body("url", "url missing or invalid").exists(),
         cookie("JSESSIONID", "session id not found - must be logged in").exists(),
     ],
-    async (req, res) => {
+    async (req: Request, res: Response) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             console.log(errors);
@@ -22,7 +23,6 @@ router.post(
 
         try {
             const pdf = await PDFService.getPDF(url, req.cookies);
-
             res.status(200).set("Content-Type", "application/pdf").send(pdf);
         } catch (e) {
             console.log(e.stack);
@@ -31,4 +31,4 @@ router.post(
     }
 );
 
-module.exports = { convertRouter: router };
+export { router as convertRouter };
