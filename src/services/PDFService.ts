@@ -28,7 +28,10 @@ export class PDFService {
         return await page.pdf(pdfOptions);
     }
 
-    private static convertCookies(cookies: {}, url: string): { name: string; value: string; url: string }[] {
+    private static convertCookies(
+        cookies: ExpressCookies,
+        url: string
+    ): { name: string; value: string; url: string }[] {
         const entries: [string, string][] = Object.entries(cookies);
 
         return entries.map((entry: [string, string]) => {
