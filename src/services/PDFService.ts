@@ -5,7 +5,7 @@ interface ExpressCookies {
     value: string;
 }
 
-module.exports = class PDFService {
+export class PDFService {
     static async getPDF(url: string, cookies: ExpressCookies) {
         const directNavigationOptions: DirectNavigationOptions = {
             waitUntil: "networkidle0",
@@ -39,4 +39,4 @@ module.exports = class PDFService {
             };
         });
     }
-};
+}

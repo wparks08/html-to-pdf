@@ -1,4 +1,4 @@
-abstract class AbstractError extends Error {
+export abstract class AbstractError extends Error {
     abstract statusCode: number;
 
     constructor(message: string) {
@@ -9,5 +9,3 @@ abstract class AbstractError extends Error {
 
     abstract serializeErrors(): { message: string; field?: string }[];
 }
-
-export { AbstractError };

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/wparks08/html-to-pdf#readme",
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
     "@types/cors": "^2.8.6",
     "@types/puppeteer": "^3.0.0",
     "eslint": "^7.1.0",

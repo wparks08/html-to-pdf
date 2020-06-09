@@ -4,7 +4,7 @@ import "express-async-errors";
 import cors, { CorsOptions } from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
-import NotFoundError from "./errors/not-found-error";
+import { NotFoundError } from "./errors/not-found-error";
 import { errorHandler } from "./middlewares/error-handler";
 import { convertRouter } from "./routes/convert";
 

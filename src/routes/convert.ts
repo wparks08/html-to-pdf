@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
-import PDFService from "../services/PDFService";
-import PDFCreationError from "../errors/pdf-creation-error";
-import ValidationError from "../errors/validation-error";
+import { PDFService } from "../services/PDFService";
+import { PDFCreationError } from "../errors/pdf-creation-error";
+import { ValidationError } from "../errors/validation-error";
 import { body, cookie, validationResult } from "express-validator";
 
 const router = express.Router();

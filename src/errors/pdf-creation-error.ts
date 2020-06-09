@@ -1,15 +1,15 @@
 import { AbstractError } from "./abstract-error";
 
-module.exports = class PDFGenerationError extends AbstractError {
+export class PDFCreationError extends AbstractError {
     statusCode = 500;
 
     constructor(message: string) {
         super(message);
 
-        Object.setPrototypeOf(this, PDFGenerationError.prototype);
+        Object.setPrototypeOf(this, PDFCreationError.prototype);
     }
 
     serializeErrors() {
         return [{ message: this.message }];
     }
-};
+}
