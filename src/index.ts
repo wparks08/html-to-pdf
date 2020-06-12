@@ -4,6 +4,7 @@ import "express-async-errors";
 import cors, { CorsOptions } from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import morgan from "morgan";
 import { NotFoundError } from "./errors/not-found-error";
 import { errorHandler } from "./middlewares/error-handler";
 import { convertRouter } from "./routes/convert";
@@ -22,6 +23,7 @@ const corsOptions: CorsOptions = {
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(morgan("combined"));
 
 app.use(cors(corsOptions));
 
