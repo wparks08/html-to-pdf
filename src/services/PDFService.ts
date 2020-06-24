@@ -19,7 +19,7 @@ export class PDFService {
                 left: "0.5 in",
             },
         };
-        const sessionCookies: SetCookie[] = this.convertCookies(cookies, url);
+        const sessionCookies: SetCookie[] = this.formatCookies(cookies, url);
 
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
@@ -28,10 +28,7 @@ export class PDFService {
         return await page.pdf(pdfOptions);
     }
 
-    private static convertCookies(
-        cookies: ExpressCookies,
-        url: string
-    ): { name: string; value: string; url: string }[] {
+    private static formatCookies(cookies: ExpressCookies, url: string): { name: string; value: string; url: string }[] {
         const entries: [string, string][] = Object.entries(cookies);
 
         return entries.map((entry: [string, string]) => {
