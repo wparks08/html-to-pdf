@@ -32,8 +32,9 @@ npm install
 ```
 
 Next, create a `.env` file in the root directory of the project, and supply the following variables:
-`PORT` (optional) - default is 7330
-`ORIGINS` (required; CORS) - specify fully qualified URLs here, where the software will be deployed (e.g., `http://localhost:7330`). Multiple origins can be listed, separated by a comma (,).
+
+* `PORT` (optional) - default is 7330
+* `ORIGINS` (required; CORS) - specify fully qualified URLs here for the application that will be using the service (e.g., `http://localhost:8080`). Multiple origins can be listed, separated by a comma (,).
 
 To make sure everything is set up correctly, `npm start` from the root directory. This will run ts-node-dev, and start
 the Express server running on port 7330
