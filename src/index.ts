@@ -1,8 +1,8 @@
 import { config } from "dotenv";
 import "express-async-errors";
-import { app } from "./app";
 
 config();
+import { app } from "./app";
 
 const PORT = process.env.PORT || 7330;
 
