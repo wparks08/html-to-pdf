@@ -25,7 +25,9 @@ export class PDFService {
         const page = await browser.newPage();
         await page.setCookie(...sessionCookies);
         await page.goto(url, directNavigationOptions);
-        return await page.pdf(pdfOptions);
+        const pdf = await page.pdf(pdfOptions);
+        await browser.close();
+        return pdf;
     }
 
     private static formatCookies(cookies: ExpressCookies, url: string): { name: string; value: string; url: string }[] {
